@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            🤖 Meta AI
+        </div>
+        <div class="right-nav">
+            <button id="shareBtn">
+                <i class="fa-solid fa-share"></i>
+                Share
+            </button>
+            <button>
+                <i class="fa-solid fa-user"></i>
+                {{ username or 'User' }}
+            </button>
+            <a href="/logout">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+<!-- Sidebar -->
+        <div class="sidebar">
+            <button id="newChat">
+                <i class="fa-solid fa-plus"></i>
+                New Chat
+            </button>
+            <h3>
+                Recent Chats
+            </h3>
+            <ul id="history">
+            </ul>
+            <button id="clearAllBtn" class="clear-all">
+                <i class="fa-solid fa-trash-can"></i>
+                Clear All Chats
+            </button>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-container">
+            <div id="chatBox">
+                <div class="bot">
+                    👋 Hello {{ username or 'User' }}
+                    <br><br>
+                    Welcome to Meta AI.
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input id="question" type="text" placeholder="Ask Meta AI...">
+                <button id="voiceBtn">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button id="sendBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

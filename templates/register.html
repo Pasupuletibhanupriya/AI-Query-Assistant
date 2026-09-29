@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meta AI - Register</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h1>🤖 Meta AI</h1>
+
+        <p>Create Your Account</p>
+
+        <!-- Flash Message -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form action="/register_user" method="POST">
+
+            <input
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create Password"
+                required>
+
+            <small id="passwordError"></small>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+
+            Already have an account?
+
+            <a href="/">Login</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const password=document.getElementById("password");
+
+const error=document.getElementById("passwordError");
+
+password.addEventListener("keyup",function(){
+
+const pattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+if(password.value===""){
+
+error.innerHTML="";
+return;
+
+}
+
+if(pattern.test(password.value)){
+
+error.innerHTML="";
+
+}
+else{
+
+error.style.color="red";
+
+error.innerHTML="Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character.";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
