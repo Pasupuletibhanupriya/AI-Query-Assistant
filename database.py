@@ -1,11 +1,16 @@
+import os
 import sqlite3
+from pathlib import Path
 
 
-DATABASE = "chatbot.db"
+DATABASE = Path(
+    os.getenv("CHATBOT_DATABASE", Path(__file__).resolve().with_name("chatbot.db"))
+)
 
 def get_connection():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 def create_database():
@@ -48,12 +53,12 @@ def create_database():
     )
     """)
 
-    # Migrate older databases: add session_id column if missing
-    try:
+    # Migrate older databases that predate per-conversation chat history.
+    columns = {
+        row[1] for row in cursor.execute("PRAGMA table_info(chats)").fetchall()
+    }
+    if "session_id" not in columns:
         cursor.execute("ALTER TABLE chats ADD COLUMN session_id TEXT")
-    except Exception:
-        # Column already exists
-        pass
 
     conn.commit()
 

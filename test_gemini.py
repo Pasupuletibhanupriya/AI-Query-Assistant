@@ -10,9 +10,10 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 question = "Say hello in one sentence."
+model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash-lite",
+    model=model,
     contents=question,
 )
 
