@@ -1,8 +1,8 @@
-# AI Query Assistant 🤖
+# AI Query Assistant
 
 An AI-powered chatbot built using Python, Flask, and Google's Gemini API. It allows users to ask questions and receive AI-generated responses through a simple web interface.
 
-## ✨ Features
+## Features
 
 - AI-powered question answering using Gemini
 - Interactive web interface
@@ -10,17 +10,17 @@ An AI-powered chatbot built using Python, Flask, and Google's Gemini API. It all
 - Environment variable support for API key configuration
 - Python-based application
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Language:** Python
-- **Backend:** Flask
-- **AI Integration:** Google Gemini API
-- **Environment Management:** python-dotenv
-- **Frontend:** HTML, CSS, JavaScript
+- Language: Python
+- Backend:Flask
+- AI Integration: Google Gemini API
+- Environment Management: python-dotenv
+- Frontend: HTML, CSS, JavaScript
 
-## 📁 Project Structure
+##Project Structure
 
-```text
+text
 AI-Query-Assistant/
 ├── app.py
 ├── database.py
@@ -35,7 +35,7 @@ AI-Query-Assistant/
 
 *Note: The structure above is illustrative. Update it to match your actual project files. Do not upload your `.env` file to GitHub.*
 
-## ⚙️ Installation and Setup
+##Installation and Setup
 
 ### 1. Clone the repository
 
@@ -80,18 +80,18 @@ python app.py
 
 Open the local URL displayed in your terminal, commonly `http://127.0.0.1:5000`, in your browser.
 
-## 🔐 Security
+## Security
 
 - Keep API keys private.
 - Store secrets in environment variables.
 - Exclude `.env` and `venv/` from Git using `.gitignore`.
 
-## 🎯 Purpose
+## Purpose
 
 This project was developed to learn how AI-powered chatbots work and how to integrate a generative AI model into a web application.
 
-## 👩‍💻 Author
+##Author
 
-**Bhanu Priya Pasupuleti**
+ Bhanu Priya Pasupuleti
 
 - GitHub: [Pasupuletibhanupriya](https://github.com/Pasupuletibhanupriya)
